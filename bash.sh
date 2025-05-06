@@ -1,8 +1,9 @@
+name="aqute-bnd"
 cd "${outdir:-.}"
-git clone https://src.fedoraproject.org/rpms/aqute-bnd.git
-pushd objectweb-asm
-sed -i 's/%bcond_with\s+bootstrap/%bcond_without\sbootstrap/' aqute-bnd.spec
+git clone https://src.fedoraproject.org/rpms/"$name".git
+pushd "$name"
+sed -i 's/%bcond_with\s+bootstrap/%bcond_without\sbootstrap/' "$name".spec
 bash -x generate-tarball.sh
 popd
-mv aqute-bnd/* ./
+mv "$name"/* ./
 
